@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Online Store</title>
+</head>
+<body>
+    <header>
+        <h1>Online Store</h1>
+    </header>
+    
+    <main>
+        <!-- Product List Section -->
+        <h2>Available Products</h2>
+        <div id="product-list"></div>
+
+        <!-- Product Details Section -->
+        <div id="product-details" style="display: none;">
+            <h2 id="product-name"></h2>
+            <img id="product-image" alt="Product Image" />
+            <p id="product-description"></p>
+            <p>Price: $<span id="product-price"></span></p>
+            <button id="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <!-- Cart and Order Summary -->
+        <div id="order-summary">
+            <h2>Order Summary</h2>
+            <div id="cart-items"></div>
+            <strong>Total: $<span id="total-price">0</span></strong>
+            <button id="proceed-payment" onclick="openPaymentModal()" style="display: none;">Proceed to Payment</button>
+        </div>
+    </main>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Select Payment Method</h2>
+            <select id="payment-method" onchange="showPaymentOptions()">
+                <option value="select">-- Select Payment Method --</option>
+                <option value="upi">UPI</option>
+                <option value="card">Debit/Credit Card</option>
+                <option value="netbanking">Net Banking</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+
+            <!-- UPI Options -->
+            <div id="upi-options" style="display: none;">
+                <h3>Select UPI App</h3>
+                <select id="upi-app">
+                    <option value="phonepe">PhonePe</option>
+                    <option value="gpay">Google Pay</option>
+                    <option value="paytm">Paytm</option>
+                </select>
+                <button onclick="redirectToUPI()">Proceed with UPI</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
